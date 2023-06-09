@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import { StarsCanvas } from "./canvas";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
@@ -37,25 +38,31 @@ const ServiceCard = ({ index, title, icon }) => (
 
 const About = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
-
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+    <div
+      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+    >
+          <motion.div
+            // variants={slideIn("left", "tween", 0.2, 1)}
+            className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
-        I am a dynamic individual who initially pursued a career in Medical Laboratory Science, gaining invaluable knowledge and skills in the healthcare field. However, my passion for technology and its potential to transform lives led me to transition into the world of software development. With a deep interest in artificial intelligence and web development, I am driven to explore the intersection of these fields, harnessing the power of AI to create innovative and user-friendly web applications. Combining my medical background with my programming expertise, I strive to develop cutting-edge solutions that enhance healthcare systems and improve patient care.
-      </motion.p>
+        <p className={styles.sectionSubText}>Information</p>
+        <h3 className={styles.sectionHeadText}>About.</h3>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
+        I am a dynamic individual who initially pursued a career in Medical Laboratory Science, gaining invaluable knowledge and skills in the healthcare field. However, my passion for technology and its potential to transform lives led me to transition into the world of software development. With a deep interest in artificial intelligence and web development, I am driven to explore the intersection of these fields, harnessing the power of AI to create innovative and user-friendly web applications. Combining my medical background with my programming expertise, I strive to develop cutting-edge solutions that enhance healthcare systems and improve patient care.
+      </motion.div>
+      
+      {/* <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+      >
+      <StarsCanvas/>
+      </motion.div> */}
+      {/* <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 
